@@ -2,6 +2,12 @@
 
 <div class="mb-4">
     <a href="{{ route('users.posts', $post->user) }}" class="font-bold">{{ $post->user->name}}</a> <span class="text-gray-600 text-sm">{{ $post->created_at->diffForHumans() }}</span>
+
+    @if (Str::endsWith(  Str::lower($post->image), '.png') || Str::endsWith(  Str::lower($post->image), '.jpg'))
+    <img src="{{ asset('uploads/post-images/'.$post->image )}}" alt="images" style="height:400px;" style="text-align: center">
+    @endif
+
+     <p>image</p>
     <p class="mb-2 bg-pink-200">{{ $post->body }}</p>
 
    

@@ -9,8 +9,10 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $table = 'posts';
+
     protected $fillable = [
-        'body'
+        'body', 'image'
     ];
 
     public function likedBy(User $user){

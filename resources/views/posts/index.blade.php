@@ -4,7 +4,7 @@
    <div class="flex justify-center">
        <div class="w-8/12 bg-white p-6 rounded-lg">
 
-         <form action="{{ route('posts') }}" method="POST" class="mb-4">
+         <form action="{{ route('posts') }}" method="POST" class="mb-4" enctype="multipart/form-data">
             @csrf
                <div class="mb-4">
                   <label for="body" class="sr-only">Body</label>
@@ -17,7 +17,13 @@
                      </div>
                   @enderror
                </div>
+{{-- aa --}}
 
+               <div class="mb-4">
+                  <input type="file" class="" name="image" id="" value="aa">
+                  <label for="" class="sr-only">Choose File</label>
+               </div>
+{{-- aa --}}
                <div>
                   <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded font-medium">Post</button>
                </div>
