@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
    <div class="flex justify-center">
@@ -60,4 +60,84 @@
             </form>
         </div>
    </div>
-@endsection
+@endsection --}}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/registerStyle.css">
+</head>
+    <body>
+        <div class="container">
+            @if (session('status'))
+            <div  style="color:white; text-align:center; margin-bottom:6px; background-color:red; padding: 10px ">
+                {{ session('status') }}
+            </div>
+            @endif
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10 wrapper">
+                    <div class="row">
+                        <div class="col-md-6 mt-2">
+                            <img src="./myImages/register-image.jpg" class="img-fluid" alt="" >
+                        </div>
+                        <div class="col-md-6 form ">
+                            <h1 class="text-center mt-5">Register</h1>
+                            <div class="text-center">
+                                <form action="{{ route('register') }}" class="form-group mt-5" method="POST">
+                                    @csrf
+                                   
+                                        <input type="text" class="col-md-10 col-10 mt-4" name="name" id="name" placeholder="First & Last name" @error('name') style="border-color: red" @enderror" value="{{ old('name') }}" >
+                                        @error('name')
+                                        <div class="text-red-500 mt-2 text-sm" style="color: rgb(231, 96, 96); padding: 10px; padding-top: 0px">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror 
+
+
+                                        <input type="email" class="col-md-10 col-10   mt-4" name="email" id="" placeholder="Your email" @error('email') style="border-color: red" @enderror" value="{{ old('email') }}">
+                                        @error('email')
+                                        <div class="text-red-500 mt-2 text-sm" style="color: rgb(231, 96, 96); padding: 10px; padding-top: 0px">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+
+                                        <input type="password" class="col-md-10 col-10   mt-4" name="password" id="" placeholder="Choose a password" @error('email') style="border-color: red" @enderror" value="">
+                                         @error('password')
+                                        <div class="text-red-500 mt-2 text-sm" style="color: rgb(231, 96, 96); padding: 10px; padding-top: -5px">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+
+                                        <input type="password" class="col-md-10 col-10  mt-4 mb-4" name="password_confirmation" id="password_confirmation" placeholder="Repeat a password">
+                                        <button class="btn col-sm-4 col-10 col-md-4 ml-5 text-white">Register</button>
+                         
+
+                                </form>
+                            </div>
+                                <p class="text-center mt-4" > Already have account?  <a href="{{ route('login') }}"> Log in</a> </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    </body>
+</html>
+
+
+
+
+
+
