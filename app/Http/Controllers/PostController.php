@@ -29,7 +29,7 @@ class PostController extends Controller
         
         $this->validate($request, [
             'body' => 'required',
-            'image' => 'nullable|sometimes|image|mimes:jpeg,png|max:100'
+            // 'image' => 'nullable|sometimes|image|mimes:jpeg,png|max:100'
         ]);
 
 
@@ -41,17 +41,17 @@ class PostController extends Controller
 
         $post->body = $request->input('body');
         
-        if($request->hasFile('image')){
-            $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move('uploads/post-images/', $filename);
-            $post->image=$filename;
-        }
-        else{
-            return $request;
-            $post->image='';
-        }
+        // if($request->hasFile('image')){
+        //     $file = $request->file('image');
+        //     $extension = $file->getClientOriginalExtension();
+        //     $filename = time().'.'.$extension;
+        //     $file->move('uploads/post-images/', $filename);
+        //     $post->image=$filename;
+        // }
+        // else{
+        //     return $request;
+        //     $post->image='';
+        // }
         
         //$request->user()->posts()->create($request->only('body'));
 

@@ -12,7 +12,7 @@ class Post extends Model
     protected $table = 'posts';
 
     protected $fillable = [
-        'body', 'image'
+        'body'
     ];
 
     public function likedBy(User $user){

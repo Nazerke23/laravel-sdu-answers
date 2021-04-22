@@ -16,6 +16,12 @@ class DashboardController extends Controller
     {
         $this->middleware(['auth']);
     }
+
+        
+    public function languageDemo(){
+        return view('languageDemo');
+
+    }
     
 
     public function index(){

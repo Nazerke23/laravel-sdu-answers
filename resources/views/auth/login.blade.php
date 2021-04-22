@@ -65,7 +65,7 @@
     <link rel="stylesheet" href="./css/registerStyle.css">
 </head>
     <body>
-        <div class="container">
+        <div class="container" style="margin-top: 50px">
             @if (session('status'))
             <div  style="color:white; text-align:center; margin-bottom:6px; background-color:red; padding: 10px ">
                 {{ session('status') }}
